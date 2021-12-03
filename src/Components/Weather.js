@@ -31,32 +31,6 @@ export default function Weather() {
 
 console.log(weatherobj);
 
-// iterating objects
-
-// const isObject = function(val){
-//     if(val === null){
-//         return false;
-//     }
-//     return (typeof val === "object")
-// }
-
-// const objProps = function(obj){ 
-//           for(let val in weatherobj)
-//       {
-//     if(isObject(weatherobj[val])){
-//         for(let val2 in weatherobj[val]){
-//          return (val2, weatherobj[val][val2])
-//         }
-       
-//     }
-//     else{
-//         console.log(val, weatherobj[val])
-//     }
-//     }
-//   }
-
-//     objProps(weatherobj);
-
 
 // const {location, current} = weatherobj;
 
@@ -92,9 +66,9 @@ console.log(weatherobj);
                   <h3>Feels Like: {feelslike}F</h3> 
                   </div>
                   
-                  {/* 
+                
                   
-                  <p>weather description:{item.weather_descriptions[0]}</p> */}
+                  <p>weather description:{weather_descriptions[0]}</p> 
 
                    {/* </div> */}
 
