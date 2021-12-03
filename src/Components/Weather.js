@@ -1,5 +1,5 @@
 
-import React,{useState,useEffect} from 'react';
+import React,{useEffect} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import {setWeather} from '../actions/index'
 import axios from 'axios';
@@ -16,6 +16,8 @@ export default function Weather() {
         const response = await axios
         .get("http://api.weatherstack.com/current?access_key=62dab9574b49d46dbf6108a64a54ff65&query=patiala&units=f")
         .catch(err => console.log(err))
+
+        console.log(response)
      
         dispatch(setWeather(response.data));
      
@@ -56,16 +58,17 @@ console.log(weatherobj);
 //     objProps(weatherobj);
 
 
-const {location, current} = weatherobj;
+// const {location, current} = weatherobj;
 
 // console.log(location);
 
-  const {name, country, region, localtime} = weatherobj.location;
+   const {name, country, region, localtime} = weatherobj.location;
 
-  const {temperature, wind_speed, humidity, feelslike, weather_descriptions} = current
+   const {temperature, wind_speed, humidity, feelslike, weather_descriptions} = weatherobj.current
 
 
- 
+//  const temp = Math.floor((temperature-32)*(5/9))
+//  console.log(temp)
 
 
 
@@ -80,16 +83,20 @@ const {location, current} = weatherobj;
                 <h4>time: {localtime}</h4> 
                </div> 
              
-
+                 
                <div className="weather-details">
              
                   <h3>Temperature: {temperature}F</h3>
                   <h3>wind speed: {wind_speed}</h3>
                   <h3>Humidity: {humidity}</h3>
-                  <h3>Feels Like: {feelslike}</h3>
-                  {/* <p>weather description:{item.weather_descriptions[0]}</p> */}
+                  <h3>Feels Like: {feelslike}F</h3> 
+                  </div>
+                  
+                  {/* 
+                  
+                  <p>weather description:{item.weather_descriptions[0]}</p> */}
 
-                   </div>
+                   {/* </div> */}
 
              
 

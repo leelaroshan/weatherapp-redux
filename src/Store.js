@@ -1,13 +1,17 @@
 import React from 'react';
 
-import {createStore} from "redux"
+import {applyMiddleware, createStore, compose} from "redux"
 import reducers from "./reducers/index";
+import logger from 'redux-logger';
+import {autoRehydrate} from 'redux-persist'
 
 
 const store = createStore(
     reducers,
-    {},
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// applyMiddleware(logger)
+    
+    compose(applyMiddleware(logger), autoRehydrate())
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 
 
